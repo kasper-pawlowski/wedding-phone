@@ -42,16 +42,20 @@ prevBtn.addEventListener('click', () => {
 updateSlider();
 
 ///////////////////////////////////////
+// Toggle Collapse
+const questions = document.querySelectorAll('.faq li .faq__question');
 
-const faqQuestions = document.querySelectorAll('.faq__column__item__question');
-
-faqQuestions.forEach((question) => {
+questions.forEach((question) => {
     question.addEventListener('click', () => {
-        const target = question.getAttribute('data-target');
-        const answer = document.querySelector(target);
-
-        question.classList.toggle('active');
-        answer.classList.toggle('active');
-        answer.style.maxHeight = answer.classList.contains('active') ? answer.scrollHeight + 'px' : 0;
+        question.querySelector('.plus-minus-toggle').classList.toggle('collapsed');
+        question.parentNode.classList.toggle('active');
     });
+});
+
+const faqQcolumnQcollapse = document.querySelector('.faq_column_collapse');
+const columnToogleBtn = document.querySelector('.column-toogle-btn');
+
+columnToogleBtn.addEventListener('click', () => {
+    faqQcolumnQcollapse.classList.add('active');
+    columnToogleBtn.style.display = 'none';
 });

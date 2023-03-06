@@ -671,53 +671,115 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media (max-width: 767px) {
+        padding: 5rem 1rem;
+    }
 
     .faq__title {
         font-family: 'DM Serif Display', serif;
         font-size: 35px;
         margin-bottom: 3rem;
+        text-align: center;
     }
 
-    .faq__column {
+    .faq-wrapper {
         display: flex;
-        flex-direction: column;
-        width: 50%;
-        list-style: none;
+        gap: 4rem;
+        @media (max-width: 767px) {
+            flex-direction: column;
+            gap: 0rem;
+        }
 
-        .faq__column__item {
-            border-top: 1px solid $lightGray;
-            border-bottom: 1px solid $lightGray;
-            padding: 1rem 0;
-            width: 100%;
+        .column-toogle-btn {
+            padding: 0.8rem 4rem;
+            background-color: $black;
+            color: white;
+            font-weight: 500;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
 
-            .faq__column__item__question {
-                display: flex;
-                align-items: center;
-                padding: 1rem 0;
+            @media (min-width: 768px) {
+                display: none;
+            }
+        }
 
-                p {
-                    font-family: 'DM Serif Display', serif;
-                    font-size: 20px;
-                }
+        .faq__column {
+            list-style: none;
+            flex: 1;
 
-                button {
-                    margin-left: auto;
-                    border: none;
-                    background: none;
-                    font-size: 20px;
-                    cursor: pointer;
-                    padding: 0.5rem 1rem;
-                    color: $black;
+            &.faq_column_collapse {
+                @media (max-width: 767px) {
+                    display: none;
+
+                    &.active {
+                        display: block;
+                    }
                 }
             }
 
-            .faq__column__item__answer {
+            li {
+                border-top: 1px solid $lightGray;
+                &.active {
+                    .faq__answer {
+                        max-height: 275px !important;
+                        padding-bottom: 2rem;
+                        transition: max-height 0.2s, padding-bottom 0.2s;
+                    }
+                    .faq__question {
+                        transition: color 0.2s;
+                    }
+                }
+            }
+            .faq__answer {
                 font-size: 16px;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.2s, padding-bottom 0.2s;
             }
+            .plus-minus-toggle {
+                cursor: pointer;
+                height: 21px;
+                position: absolute;
+                width: 21px;
+                right: 0;
+                top: 50%;
+                z-index: 2;
 
-            .faq__column__item__answer.active {
-                max-height: none;
-                overflow: visible;
+                &:before,
+                &:after {
+                    background: $accent2;
+                    content: '';
+                    height: 2px;
+                    left: 0;
+                    position: absolute;
+                    top: 0;
+                    width: 14px;
+                    transition: transform 0.2s;
+                }
+
+                &:after {
+                    transform-origin: center;
+                }
+
+                &.collapsed {
+                    &:after {
+                        transform: rotate(90deg);
+                    }
+
+                    &:before {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+            .faq__question {
+                font-family: 'DM Serif Display', serif;
+                position: relative;
+                cursor: pointer;
+                padding: 2rem 0;
+                transition: color 0.2s;
+                padding-right: 2rem;
             }
         }
     }
