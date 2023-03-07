@@ -20,7 +20,7 @@ header {
   justify-content: center;
   padding: 2rem 0;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   header {
     background-color: #f8f1e8;
   }
@@ -522,6 +522,9 @@ header {
   font-family: "DM Serif Display", serif;
   font-size: 35px;
 }
+.section-4 .section-4__wrapper .section-4__wrapper__title.underline {
+  text-decoration: underline;
+}
 .section-4 .section-4__wrapper ul {
   display: flex;
   flex-direction: column;
@@ -560,7 +563,6 @@ header {
   display: flex;
   flex-direction: column;
   padding: 5rem 10rem 0 10rem;
-  text-align: center;
   align-items: center;
 }
 @media (max-width: 1200px) {
@@ -570,27 +572,48 @@ header {
 }
 @media (max-width: 767px) {
   .section-5 {
-    background-color: #ffffff;
     padding: 0;
   }
 }
-.section-5 .section-5__title {
+.section-5 .section-5__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+@media (max-width: 767px) {
+  .section-5 .section-5__wrapper {
+    align-items: flex-start;
+    padding: 3rem 1rem 2rem 1rem;
+  }
+}
+.section-5 .section-5__wrapper .section-5__wrapper__title {
   font-family: "DM Serif Display", serif;
   font-size: 35px;
   margin-bottom: 3rem;
 }
-@media (max-width: 767px) {
-  .section-5 .section-5__title {
-    display: none;
+@media (min-width: 768px) {
+  .section-5 .section-5__wrapper .section-5__wrapper__title {
+    text-align: center;
   }
 }
-.section-5 .section-5__description {
+@media (max-width: 767px) {
+  .section-5 .section-5__wrapper .section-5__wrapper__title {
+    font-size: 28px;
+  }
+}
+.section-5 .section-5__wrapper .section-5__wrapper__description {
   font-size: 17px;
   width: 70%;
 }
+@media (min-width: 768px) {
+  .section-5 .section-5__wrapper .section-5__wrapper__description {
+    text-align: center;
+  }
+}
 @media (max-width: 767px) {
-  .section-5 .section-5__description {
-    display: none;
+  .section-5 .section-5__wrapper .section-5__wrapper__description {
+    font-size: 14px;
   }
 }
 .section-5 .section-5__newsletter {
@@ -607,6 +630,7 @@ header {
 @media (max-width: 767px) {
   .section-5 .section-5__newsletter {
     padding: 0;
+    margin-top: 1rem;
   }
 }
 .section-5 .section-5__newsletter img {
@@ -681,6 +705,165 @@ header {
 @media (max-width: 767px) {
   .section-5 .section-5__newsletter .section-5__newsletter__wrapper {
     width: 100%;
+  }
+}
+
+.models {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .models {
+    display: flex;
+    justify-content: center;
+  }
+}
+.models .models-wrapper {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .models .models-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 3rem;
+    padding: 7rem 7rem 3rem 7rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 1520px) {
+  .models .models-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+@media (min-width: 768px) and (max-width: 1100px) {
+  .models .models-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+@media (max-width: 767px) {
+  .models .models-wrapper {
+    display: flex;
+    padding: 1rem 0;
+    transition: transform 0.3s ease-in-out;
+  }
+}
+.models .models__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .models .models__item {
+    width: 100%;
+    flex: 0 0 100vw;
+    margin-right: 10px;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .models .models__item:last-child {
+    margin-right: 0;
+  }
+}
+.models .models__item img {
+  max-height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 2rem;
+}
+@media (max-width: 1400px) {
+  .models .models__item img {
+    max-height: 150px;
+  }
+}
+.models .models__item p {
+  font-family: "DM Serif Display", serif;
+  font-size: 35px;
+  color: #151414;
+  margin-bottom: 1rem;
+}
+.models .models__item span {
+  font-size: 20px;
+  color: #151414;
+  margin-bottom: 2rem;
+}
+.models .models__item button {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.8rem 4rem;
+  background-color: #000000;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+}
+@media (max-width: 767px) {
+  .models .models__item button {
+    width: 100%;
+  }
+}
+.models .models__prev-btn {
+  position: absolute;
+  top: 30%;
+  left: 1rem;
+  transform: translateY(-50%);
+  z-index: 1;
+  background: none;
+  border: none;
+}
+@media (min-width: 768px) {
+  .models .models__prev-btn {
+    display: none;
+  }
+}
+.models .models__next-btn {
+  position: absolute;
+  top: 30%;
+  right: 1rem;
+  transform: translateY(-50%);
+  z-index: 1;
+  background: none;
+  border: none;
+}
+@media (min-width: 768px) {
+  .models .models__next-btn {
+    display: none;
+  }
+}
+.models .models-info {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.models .models-info img {
+  height: 50px;
+}
+.models .models-info p {
+  width: 70%;
+}
+.models .models-info.desktop {
+  flex-direction: column;
+}
+@media (max-width: 767px) {
+  .models .models-info.desktop {
+    display: none;
+  }
+}
+.models .models-info.mobile {
+  padding: 1rem 3rem;
+}
+.models .models-info.mobile p {
+  width: 100%;
+  font-size: 12px;
+}
+@media (min-width: 768px) {
+  .models .models-info.mobile {
+    display: none;
   }
 }
 
@@ -790,6 +973,7 @@ header {
 }
 .faq .faq-wrapper .faq__column .faq__question {
   font-family: "DM Serif Display", serif;
+  font-size: 18px;
   position: relative;
   cursor: pointer;
   padding: 2rem 0;
@@ -798,12 +982,17 @@ header {
 }
 
 .contact {
-  padding: 5rem 10rem;
+  padding: 5rem 15rem;
   width: 100%;
+}
+@media (max-width: 1400px) {
+  .contact {
+    padding: 5rem 10rem;
+  }
 }
 @media (max-width: 1200px) {
   .contact {
-    padding: 5rem 3rem;
+    padding: 5rem 5rem;
   }
 }
 @media (max-width: 767px) {
@@ -915,7 +1104,7 @@ footer a {
   color: #ffffff;
   text-decoration: none;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   footer {
     font-size: 20px;
     flex-direction: column;
